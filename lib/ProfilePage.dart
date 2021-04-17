@@ -34,17 +34,25 @@ class _ProfilePageState extends State<ProfilePage> {
       child: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
-            title: Text('Profile',
-                style: TextStyle(
-                  color: Color(0xFF123c69),
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20.0,
-                )),
+            pinned: true,
+            // forceElevated: true,
+            // title: Text('Profile',
+            //     style: TextStyle(
+            //       color: Color(0xFF123c69),
+            //       fontWeight: FontWeight.bold,
+            //       fontSize: 20.0,
+            //     )),
             backgroundColor: Color(0xFFD2FDFF),
             expandedHeight: 250.0,
             iconTheme: IconThemeData(color: Color(0xFF123c69)),
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset('images/as.png', fit: BoxFit.cover),
+              title: Text('Profile',
+                  style: TextStyle(
+                    color: Color(0xFF123c69),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16.0,
+                  )),
             ),
           ),
           SliverFixedExtentList(
@@ -52,73 +60,196 @@ class _ProfilePageState extends State<ProfilePage> {
             delegate: SliverChildListDelegate(
               [
                 Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  color: Color(0xFF123c69),
-                  shadowColor: Color(0xFF123c69),
-                  elevation: 20,
-                  child: Container(
-                    height: 100,
-                    margin: EdgeInsets.all(10),
-                    padding: EdgeInsets.all(10),
-                    child: Row(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    color: Color(0xFF123c69),
+                    shadowColor: Color(0xFF123c69),
+                    elevation: 20,
+                    child: Container(
+                  height: 80,
+                  width: MediaQuery.of(context).size.width,
+                  padding: EdgeInsets.all(10),
+                  child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Text("Name: ",
                             style: TextStyle(
                               color: Color(0xFFD2FDFF),
                               fontSize: 20.0,
                             )),
-                        Text(" ${me.fullName}",
-                            style: TextStyle(
-                              color: Color(0xFFD2FDFF),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20.0,
-                            )),
+                        Container(
+                          width: MediaQuery.of(context).size.width/1.8,
+                          child: Text(me.fullName,
+                          textAlign: TextAlign.center,
+                              overflow: TextOverflow.clip,
+                              style: TextStyle(
+                                color: Color(0xFFD2FDFF),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20.0,
+                              )),
+                        ),
                       ],
                     ),
                   ),
-                ),
-                Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  color: Color(0xFF123c69),
-                  shadowColor: Color(0xFF123c69),
-                  elevation: 20,
-                  child: Container(
-                    height: 100,
-                    margin: EdgeInsets.all(10),
-                    padding: EdgeInsets.all(10),
-                    child: Row(
+                ),Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    color: Color(0xFF123c69),
+                    shadowColor: Color(0xFF123c69),
+                    elevation: 20,
+                    child: 
+                Container(
+                  height: 80,
+                  width: MediaQuery.of(context).size.width,
+                  padding: EdgeInsets.all(10),
+                  child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Text("Email Id.: ",
                             style: TextStyle(
                               color: Color(0xFFD2FDFF),
                               fontSize: 20.0,
                             )),
-                        Text(" ${me.emailId}",
+                        Container(
+                          width: MediaQuery.of(context).size.width/1.8,
+                          child: Text(me.emailId,
+                          textAlign: TextAlign.center,
+                              overflow: TextOverflow.clip,
+                              style: TextStyle(
+                                color: Color(0xFFD2FDFF),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20.0,
+                              )),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding: EdgeInsets.all(10),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        color: Color(0xFF123c69),
+                        shadowColor: Color(0xFF123c69),
+                        elevation: 20,
+                        child: Container(
+                      height: 200,
+                      width: MediaQuery.of(context).size.width/2+20,
+                      padding: EdgeInsets.all(10),
+                      child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Text("Gender: ",
+                                style: TextStyle(
+                                  color: Color(0xFFD2FDFF),
+                                  fontSize: 20.0,
+                                )),
+                            Text(" ${me.gender}",
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  color: Color(0xFFD2FDFF),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20.0,
+                                )),
+                          ],
+                        ),
+                      ),
+                        ),
+                      Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            color: Color(0xFF123c69),
+                            shadowColor: Color(0xFF123c69),
+                            elevation: 20,
+                            child: Container(
+                          height: 200,
+                      width: MediaQuery.of(context).size.width/4+32,
+                          padding: EdgeInsets.all(10),
+                          child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text("Age: ",
+                                    style: TextStyle(
+                                      color: Color(0xFFD2FDFF),
+                                      fontSize: 20.0,
+                                    )),
+                                Text(" ${me.age}",
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                      color: Color(0xFFD2FDFF),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20.0,
+                                    )),
+                              ],
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+                Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    color: Color(0xFF123c69),
+                    shadowColor: Color(0xFF123c69),
+                    elevation: 20,
+                    child: Container(
+                  height: 80,
+                  width: MediaQuery.of(context).size.width,
+                  padding: EdgeInsets.all(10),
+                  child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text("Mobile No.: ",
                             style: TextStyle(
                               color: Color(0xFFD2FDFF),
-                              fontWeight: FontWeight.bold,
                               fontSize: 20.0,
                             )),
+                        Container(
+                          width: MediaQuery.of(context).size.width/1.8,
+                          child: Text(me.mobileNo,
+                          textAlign: TextAlign.center,
+                              overflow: TextOverflow.clip,
+                              style: TextStyle(
+                                color: Color(0xFFD2FDFF),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20.0,
+                              )),
+                        ),
                       ],
                     ),
                   ),
                 ),
                 Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  color: Color(0xFF123c69),
-                  shadowColor: Color(0xFF123c69),
-                  elevation: 20,
-                  child: Container(
-                    height: 100,
-                    margin: EdgeInsets.all(10),
-                    padding: EdgeInsets.all(10),
-                    child: Row(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    color: Color(0xFF123c69),
+                    shadowColor: Color(0xFF123c69),
+                    elevation: 20,
+                    child: Container(
+                  height: 80,
+                  width: MediaQuery.of(context).size.width,
+                  padding: EdgeInsets.all(10),
+                  child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Text("Mobile No.: ",
                             style: TextStyle(
@@ -135,79 +266,6 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Expanded(
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        color: Color(0xFF123c69),
-                        shadowColor: Color(0xFF123c69),
-                        elevation: 20,
-                        child: Container(
-                          height: 100,
-                          margin: EdgeInsets.all(10),
-                          padding: EdgeInsets.all(10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Text("Gender: ",
-                                  style: TextStyle(
-                                    color: Color(0xFFD2FDFF),
-                                    fontSize: 20.0,
-                                  )),
-                              Text(" ${me.gender}",
-                                  style: TextStyle(
-                                    color: Color(0xFFD2FDFF),
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20.0,
-                                  )),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        color: Color(0xFF123c69),
-                        shadowColor: Color(0xFF123c69),
-                        elevation: 20,
-                        child: Container(
-                          height: 100,
-                          margin: EdgeInsets.all(10),
-                          padding: EdgeInsets.all(10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Text("Age: ",
-                                  style: TextStyle(
-                                    color: Color(0xFFD2FDFF),
-                                    fontSize: 20.0,
-                                  )),
-                              Text(" ${me.age}",
-                                  style: TextStyle(
-                                    color: Color(0xFFD2FDFF),
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20.0,
-                                  )),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                )
               ],
             ),
           ),
@@ -271,6 +329,7 @@ class _ProfilePageState extends State<ProfilePage> {
             height: 60,
           ),
           Row(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Text("Name: ",
                   style: TextStyle(
@@ -289,6 +348,7 @@ class _ProfilePageState extends State<ProfilePage> {
             height: 20,
           ),
           Row(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Text("Email Id.: ",
                   style: TextStyle(
@@ -306,25 +366,11 @@ class _ProfilePageState extends State<ProfilePage> {
           SizedBox(
             height: 20,
           ),
-          Row(
-            children: [
-              Text("Mobile No.: ",
-                  style: TextStyle(
-                    color: Color(0xFF123c69),
-                    fontSize: 16.0,
-                  )),
-              Text(" ${me.mobileNo}",
-                  style: TextStyle(
-                    color: Color(0xFF123c69),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16.0,
-                  )),
-            ],
-          ),
           SizedBox(
             height: 20,
           ),
           Row(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Text("Gender: ",
                   style: TextStyle(
@@ -342,7 +388,8 @@ class _ProfilePageState extends State<ProfilePage> {
           SizedBox(
             height: 20,
           ),
-          Row(
+          Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Text("Age: ",
                   style: TextStyle(
@@ -359,6 +406,22 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           SizedBox(
             height: 20,
+          ),
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text("Mobile No.: ",
+                  style: TextStyle(
+                    color: Color(0xFF123c69),
+                    fontSize: 16.0,
+                  )),
+              Text(" ${me.mobileNo}",
+                  style: TextStyle(
+                    color: Color(0xFF123c69),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16.0,
+                  )),
+            ],
           ),
         ],
       ),

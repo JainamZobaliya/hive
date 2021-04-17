@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -130,17 +132,16 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   style: TextStyle(
                     color: Color(0xFF123c69),
                     fontFamily: 'Times New Roman',
-                    fontSize: 20.0,
                     fontWeight: FontWeight.bold,
                   ),
                   decoration: const InputDecoration(
                     filled: true,
                     fillColor: Color.fromRGBO(255, 255, 255, 0.5),
                     labelText: 'Email Id.',
-                    hintText: "e.g abc@gmail.com",
+                    hintText: 'e.g. abc@gmail.com',
                     labelStyle: TextStyle(
                       fontFamily: 'Times New Roman',
-                      fontSize: 20.0,
+                    fontSize: 20.0,
                       fontWeight: FontWeight.bold,
                       color: Color(0xFF123c69),
                     ),
@@ -171,7 +172,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 style: TextStyle(
                   color: Color(0xFF123c69),
                   fontFamily: 'Times New Roman',
-                  fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                 ),
                 decoration: InputDecoration(
@@ -227,7 +227,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   style: TextStyle(
                     color: Color(0xFF123c69),
                     fontFamily: 'Times New Roman',
-                    fontSize: 20.0,
                     fontWeight: FontWeight.bold,
                   ),
                   decoration: InputDecoration(
@@ -495,8 +494,15 @@ class _RegistrationPageState extends State<RegistrationPage> {
       password: _password.text,
     )
         .then((result) async {
+      var random = Random();
+      var randomNumber = random.nextInt(100) + random.nextInt(10)*100;
+      var name = _fullName.text.trim().toUpperCase().split("");
+      name.shuffle();
+      var customerId = 'CID'+randomNumber.toString()+name[0]+name[1];
       uid = this.uid;
-      dbRef.child(result.user.uid).set({
+      // onLoading(context, "",uid: result.user.uid);
+      await dbRef.child("Customers").child(result.user.uid).set({
+        "customerId": customerId,
         "emailId": _emailId.text,
         "fullName": _fullName.text,
         "gender": gender1,
@@ -509,7 +515,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
         }
         showMessageSnackBar("Registration Successfull!!");
         _isSuccess = true;
-        await onLoading(context, result.user.uid);
+        await onLoading(context, "Please Verify Your \n Email To Continue!!",uid: result.user.uid);
       } else {
         _isSuccess = false;
       }
@@ -545,7 +551,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
     scaffoldKey.currentState.showSnackBar(snackBar);
   }
 
-  Future<void> onLoading(BuildContext context, var uid) {
+  Future<void> onLoading(BuildContext context, String message, {var uid}) {
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -560,8 +566,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   valueColor:
                       new AlwaysStoppedAnimation<Color>(Color(0xFFD2FDFF)),
                 ),
-                new Text(
-                  "Please Verify Your \n Email To Continue!!",
+                new Text(message,
                   style: TextStyle(
                       color: Color(0xFFD2FDFF),
                       fontWeight: FontWeight.bold,

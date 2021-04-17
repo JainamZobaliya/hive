@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
         width: MediaQuery.of(context).size.width,
         child: Stack(
           children: [
-            getMap(applicationBloc),
+            applicationBloc.currentLocation==null?SizedBox():getMap(applicationBloc),
             Container(
               padding: EdgeInsets.all(10),
               margin:EdgeInsets.all(20),
@@ -63,7 +63,6 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyle(
                   color: Color(0xFF123c69),
                   fontFamily: 'Times New Roman',
-                  fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                 ),
                 decoration: const InputDecoration(
@@ -72,7 +71,6 @@ class _HomePageState extends State<HomePage> {
                   labelText: 'Enter Pick-up Point',
                   labelStyle: TextStyle(
                     fontFamily: 'Times New Roman',
-                    fontSize: 20.0,
                     fontWeight: FontWeight.bold,
                     color: Color(0xFF123c69),
                   ),
@@ -101,7 +99,6 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyle(
                   color: Color(0xFF123c69),
                   fontFamily: 'Times New Roman',
-                  fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                 ),
                 decoration: const InputDecoration(
@@ -110,7 +107,6 @@ class _HomePageState extends State<HomePage> {
                   labelText: 'Enter Destination Point',
                   labelStyle: TextStyle(
                     fontFamily: 'Times New Roman',
-                    fontSize: 20.0,
                     fontWeight: FontWeight.bold,
                     color: Color(0xFF123c69),
                   ),

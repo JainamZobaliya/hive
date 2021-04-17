@@ -77,7 +77,6 @@ class _LogInPageState extends State<LogInPage> {
                 style: TextStyle(
                   color: Color(0xFF123c69),
                   fontFamily: 'Times New Roman',
-                  fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                 ),
                 controller: _emailId,
@@ -113,7 +112,6 @@ class _LogInPageState extends State<LogInPage> {
               style: TextStyle(
                 color: Color(0xFF123c69),
                 fontFamily: 'Times New Roman',
-                fontSize: 20.0,
                 fontWeight: FontWeight.bold,
               ),
               decoration: InputDecoration(

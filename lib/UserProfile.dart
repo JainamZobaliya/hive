@@ -3,6 +3,7 @@ import 'package:firebase_database/firebase_database.dart';
 
 class UserProfile {
   String userId;
+  String customerId;
   String fullName;
   String emailId;
   String mobileNo;
@@ -20,6 +21,11 @@ class UserProfile {
   UserProfile({String userId}) {
     this.userId = userId;
     getFormData(userId);
+  }
+
+  void setCustomerId(String data)
+  {
+    this.customerId = data;
   }
 
   void setEmailId(String data) {
@@ -46,24 +52,23 @@ class UserProfile {
     final uid = userId;
     final dbRef = FirebaseDatabase.instance.reference();
     await dbRef.once().then((DataSnapshot snapshot) async {
-      snapshot.value.forEach((key, val) {
-        //=> vv.forEach((key, val){
+      snapshot.value.forEach((key, val) => val.forEach((key, val){
         if (key == uid) {
+          setCustomerId(val['customerId']);
           setEmailId(val['emailId']);
           setFullName(val['fullName']);
           setMobileNo(val['mobileNo']);
           setAge(val['age']);
           setGender(val['gender']);
-          print("Email Id.: ${this.emailId}");
-          print("Full Name: ${this.fullName}");
-          print("Mobile No.: ${this.mobileNo}");
-          print("Age: ${this.age}");
-          print("Gender: ${this.gender}");
+          print('Email Id.: ${this.emailId}');
+          print('Full Name: ${this.fullName}');
+          print('Mobile No.: ${this.mobileNo}');
+          print('Age: ${this.age}');
+          print('Gender: ${this.gender}');
         }
-        // })
-      });
-    });
-  }
+        })
+    );});
+    }
 
   // FirebaseAuth _auth = FirebaseAuth.instance;
   // Future<LogInPage> signOut() async {
