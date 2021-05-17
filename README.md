@@ -14,8 +14,6 @@ When the customer requests for a ride, he/she needs to provide input (after simp
 </ol>
 , based on which, the user will be redirected to the Booking Page and can confirm the ride.
 
-### Apk Link:
-
 
 ## HiVe Web App
 This is a platform designed to satisfy the need of admins / employees.  
