@@ -1,16 +1,36 @@
-# hive
+# HiVe (Hire Vehicle)
 
-A new Flutter project.
+HIVE(Hire Vehicle) which is a Vehicle rental service.  
+It comprises of an android application which lets you book vehicles using your Smartphone and a web application for admins to manage the business.  
+The objective of this project is to automate vehicle rental and reservation. So, customers do not need to call & spend unnecessary time in order to reserve preferred vehicle. They can go online and reserve any preferred kind of vehicle they want, which is available at that time. 
 
-## Getting Started
+## HiVe Flutter App
+This is a platform designed to satisfy the need of customers.  
+When the customer requests for a ride, he/she needs to provide input (after simple registration) such as 
+<ol>
+  <li>Source </li>
+  <li>Destination </li>
+  <li>Vehicle to be used</li>
+</ol>
+, based on which, the user will be redirected to the Booking Page and can confirm the ride.
 
-This project is a starting point for a Flutter application.
+### Apk Link:
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## HiVe Web App
+This is a platform designed to satisfy the need of admins / employees.  
+After Sign In, admins can use following features 
+<ol>
+  <li>View Customers </li>
+  <li>Remove Customers </li>
+  <li>View Employees </li>
+  <li>Add Employee </li>
+  <li>Remove Employee </li>
+  <li>View Vehicles </li>
+  <li>Add Vehicle </li>
+  <li>Remove Vehicle </li>
+  <li>View Customer History </li>
+  <li>View Trip History </li>
+  <li>View Vehicle History </li>
+  <li>Profile </li>
+</ol>
