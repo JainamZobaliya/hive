@@ -6,14 +6,16 @@ The objective of this project is to automate vehicle rental and reservation. So,
 
 ## HiVe Flutter App
 This is a platform designed to satisfy the need of customers.  
-When the customer requests for a ride, he/she needs to provide input (after simple registration) such as 
+When the customer requests for a ride, he/she needs to provide input (after Sign In) such as 
 <ol>
   <li>Source </li>
   <li>Destination </li>
   <li>Vehicle to be used</li>
 </ol>
-, based on which, the user will be redirected to the Booking Page and can confirm the ride.
+Based on which, the user will be redirected to the Booking Page and can confirm the ride.
 
+### Apk link
+https://drive.google.com/file/d/1yR9PGcsrvOcgWYcUeNOzpxpW5oAQra1p/view
 
 ## HiVe Web App
 This is a platform designed to satisfy the need of admins / employees.  
