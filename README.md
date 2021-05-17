@@ -5,6 +5,8 @@ It comprises of an android application which lets you book vehicles using your S
 The objective of this project is to automate vehicle rental and reservation. So, customers do not need to call & spend unnecessary time in order to reserve preferred vehicle. They can go online and reserve any preferred kind of vehicle they want, which is available at that time. 
 
 ## HiVe Flutter App
+https://drive.google.com/file/d/1yR9PGcsrvOcgWYcUeNOzpxpW5oAQra1p/view  
+### Features
 This is a platform designed to satisfy the need of customers.  
 When the customer requests for a ride, he/she needs to provide input (after Sign In) such as 
 <ol>
@@ -14,10 +16,13 @@ When the customer requests for a ride, he/she needs to provide input (after Sign
 </ol>
 Based on which, the user will be redirected to the Booking Page and can confirm the ride.
 
-### Apk link
-https://drive.google.com/file/d/1yR9PGcsrvOcgWYcUeNOzpxpW5oAQra1p/view
-
 ## HiVe Web App
+https://hive-62246.web.app/  
+<br />
+**Guest Log In Credentials**  
+Email Id.: guest@hive.com  
+Password: guest@hive.com  
+### Features
 This is a platform designed to satisfy the need of admins / employees.  
 After Sign In, admins can use following features 
 <ol>
@@ -34,10 +39,3 @@ After Sign In, admins can use following features
   <li>View Vehicle History </li>
   <li>Profile </li>
 </ol>
-
-### HiVe Admin Page Link:  
-https://hive-62246.web.app/  
-<br />
-**Guest Log In Credentials**  
-Email Id.: guest@hive.com  
-Password: guest@hive.com
